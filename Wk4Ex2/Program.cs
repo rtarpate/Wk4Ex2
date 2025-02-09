@@ -1,28 +1,22 @@
-﻿//intructions:
-//create mthods for calucationg the grades for assignmets midterms final
-//create method for finalgrade
-//lets user input scores
-//display final grade based on weighted (assignmern = 40% midterm=30%  exam=30% + final)
-
-
-//decalares variable assignment grade
-double GradeAssignment = double.MaxValue;
+﻿//decalares variable assignment grade
+double GradeAssignment = 0;
 
 //declares variale for midterm
-double GradeMidterm = double.MaxValue;
+double GradeMidterm = 0;
 
 //decalres variable for exam
-double GradeExam = double.MaxValue;
+double GradeExam = 0;
 
 //decalres variable for final grade
-double FinalGrade = double.MaxValue;
+double FinalGrade = 0;
 
 //method for final grade
-static double GradeFinal()
+static double GradeFinal(double GradeAssignment, double GradeMidterm, double GradeExam)
 {
     double retVal = double.MaxValue;
 
-
+    //caluates the wieghted grade
+    retVal = (GradeAssignment * 0.2) + (GradeMidterm * 0.3) + (GradeExam * 0.5);
 
 
 
@@ -32,19 +26,19 @@ static double GradeFinal()
 try
 {
     //promt user to input grad for assignment
-    Console.WriteLine(" please input grade for assignment in decmial: ");
+    Console.WriteLine(" please input grade for assignment: ");
 
     //collects user input and converts it to doble
     GradeAssignment = Convert.ToDouble(Console.ReadLine());
 
     //promt user to input grad for assignment
-    Console.WriteLine(" please input grade for Midterm in decmial: ");
+    Console.WriteLine(" please input grade for Midterm: ");
 
     //collects user input and converts it to doble
     GradeMidterm = Convert.ToDouble(Console.ReadLine());
 
     //promt user to input grad for assignment
-    Console.WriteLine(" please input grade for Exam in decmial: ");
+    Console.WriteLine(" please input grade for Exam: ");
 
     //collects user input and converts it to doble
     GradeExam = Convert.ToDouble(Console.ReadLine());
@@ -55,7 +49,9 @@ catch (Exception e)
     Console.WriteLine(" invalid input ");
 }
 
+//uses method to set finalgrade equal to gradefinal
+FinalGrade = GradeFinal(GradeAssignment, GradeMidterm, GradeExam);
+
 //outputs final grade
 Console.WriteLine(" the final grade is " + FinalGrade);
 Console.Read();
-
